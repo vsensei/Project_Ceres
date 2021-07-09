@@ -1,0 +1,21 @@
+@use 'styles/variables' as vars;
+
+body {
+  font-family: 'Ubuntu Mono';
+  padding: 20px 60px;
+}
+
+a {
+  text-decoration: none;
+  color: vars.$secondarycolor;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@media screen and (max-width: 800px) {
+  body {
+    padding: 10px;
+  }
+}
