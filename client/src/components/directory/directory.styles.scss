@@ -1,0 +1,8 @@
+@use 'styles/common';
+
+.directory-menu {
+  @extend %rowflex;
+  @extend %fullwidth;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
