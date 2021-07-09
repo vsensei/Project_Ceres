@@ -1,0 +1,33 @@
+%rowflex {
+  display: flex;
+}
+
+%columnflex {
+  @extend %rowflex;
+  flex-direction: column;
+}
+
+%hor-cent-block {
+  margin: 0 auto;
+}
+
+%centtext {
+  text-align: center;
+}
+
+%pointer {
+  cursor: pointer;
+}
+
+%fullwidth {
+  width: 100%;
+}
+
+%fullheight {
+  height: 100%;
+}
+
+%centeredalignwithjustify {
+  align-items: center;
+  justify-content: center;
+}
