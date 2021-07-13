@@ -9,7 +9,7 @@ const Header = () => (
     <Link className="logo-container" to="/">
       <div
         className="logo"
-        style={{ backgroundImage: `url('images/logo.svg')` }}
+        style={{ backgroundImage: `url('/images/logo.svg')` }}
       />
     </Link>
     <div className="options-container">
@@ -31,7 +31,7 @@ const Header = () => (
       <div className="cart-icon">
         <div
           className="cart-logo"
-          style={{ backgroundImage: `url('images/cart.svg')` }}
+          style={{ backgroundImage: `url('/images/cart.svg')` }}
         ></div>
         <span className="cart-item-count">0</span>
       </div>
