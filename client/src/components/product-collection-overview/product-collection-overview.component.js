@@ -1,14 +1,17 @@
 import React from 'react';
-//import './collections-overview.styles.scss';
+import './product-collection-overview.styles.scss';
 import ProductCollectionPreview from 'components/product-collection-preview/product-collection-preview.component';
-import productCollection from 'dummies/productsCollectionDummy';
+import productCollections from 'dummies/productCollectionsDummy';
 
-const ProductCollectionsOverview = () => (
+const ProductCollectionOverview = () => (
   <div className="collections-overview">
-    {productCollection['pasta'].map(({ id, ...otherCollectionProps }) => (
-      <ProductCollectionPreview key={id} {...otherCollectionProps} />
+    {Object.entries(productCollections).map((productCollection, index) => (
+      <ProductCollectionPreview
+        title={productCollection[0]}
+        productCollection={productCollection[1]}
+      />
     ))}
   </div>
 );
 
-export default ProductCollectionsOverview;
+export default ProductCollectionOverview;
