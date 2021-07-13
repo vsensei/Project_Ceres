@@ -1,4 +1,4 @@
-const productCollection = {
+const productCollections = {
   pasta: [
     {
       id: 1,
@@ -151,4 +151,4 @@ const productCollection = {
   ],
 };
 
-export default productCollection;
+export default productCollections;
