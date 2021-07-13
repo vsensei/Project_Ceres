@@ -1,7 +1,6 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import ProductsCollectionOverviewContainer from '../../components/collections-overview/collections-overview.container';
-//import ProductsCollectionPageContainer from '../collection/collection.container';
+import ProductCollectionOverview from 'components/product-collection-overview/product-collection-overview.component';
 
 const ShopPage = ({ match }) => {
   return (
@@ -9,7 +8,7 @@ const ShopPage = ({ match }) => {
       <Route
         exact
         path={`${match.path}`}
-        component={ProductsCollectionOverviewContainer}
+        component={ProductCollectionOverview}
       />
       {/*<Route
         path={`${match.path}/:collectionId`}
