@@ -1,7 +1,6 @@
 @use 'styles/common';
-@use 'styles/mixins' as mixins;
 
-.collection-preview {
+.product-collection-preview {
   @extend %columnflex;
   margin-bottom: 30px;
 
