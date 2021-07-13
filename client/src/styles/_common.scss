@@ -7,6 +7,14 @@
   flex-direction: column;
 }
 
+%centeritems {
+  align-items: center;
+}
+
+%centercontent {
+  justify-content: center;
+}
+
 %hor-cent-block {
   margin: 0 auto;
 }
