@@ -1,0 +1,26 @@
+@use 'styles/common';
+
+.product-collection-page {
+  @extend %columnflex;
+
+  .title {
+    font-size: 38px;
+    margin: 0 auto 30px;
+  }
+
+  .items {
+    @extend %rowflex;
+    justify-content: space-between;
+    column-gap: 10px;
+
+    @media screen and (max-width: 800px) {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 15px;
+    }
+  }
+
+  @media screen and (max-width: 800px) {
+    align-items: center;
+  }
+}
