@@ -28,31 +28,38 @@ const productCollections = {
         'https://images.unsplash.com/photo-1563379926898-05f4575a45d8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80',
       price: 80,
     },
+    {
+      id: 5,
+      name: 'Pasta #5',
+      imageUrl:
+        'https://images.unsplash.com/photo-1563379926898-05f4575a45d8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80',
+      price: 80,
+    },
   ],
   soup: [
     {
-      id: 5,
+      id: 6,
       name: 'Soup #1',
       imageUrl:
         'https://images.unsplash.com/photo-1591090820777-2966ef650555?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80',
       price: 15,
     },
     {
-      id: 6,
+      id: 7,
       name: 'Soup #2',
       imageUrl:
         'https://images.unsplash.com/photo-1591090820777-2966ef650555?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80',
       price: 25,
     },
     {
-      id: 7,
+      id: 8,
       name: 'Soup #3',
       imageUrl:
         'https://images.unsplash.com/photo-1591090820777-2966ef650555?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80',
       price: 60,
     },
     {
-      id: 8,
+      id: 9,
       name: 'Soup #4',
       imageUrl:
         'https://images.unsplash.com/photo-1591090820777-2966ef650555?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80',
@@ -61,28 +68,28 @@ const productCollections = {
   ],
   salad: [
     {
-      id: 9,
+      id: 10,
       name: 'Salad #1',
       imageUrl:
         'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
       price: 15,
     },
     {
-      id: 10,
+      id: 11,
       name: 'Salad #2',
       imageUrl:
         'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
       price: 25,
     },
     {
-      id: 11,
+      id: 12,
       name: 'Salad #3',
       imageUrl:
         'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
       price: 60,
     },
     {
-      id: 12,
+      id: 13,
       name: 'Salad #4',
       imageUrl:
         'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
@@ -91,28 +98,28 @@ const productCollections = {
   ],
   sushi: [
     {
-      id: 13,
+      id: 14,
       name: 'Sushi #1',
       imageUrl:
         'https://images.unsplash.com/photo-1583623025817-d180a2221d0a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1051&q=80',
       price: 15,
     },
     {
-      id: 14,
+      id: 15,
       name: 'Sushi #2',
       imageUrl:
         'https://images.unsplash.com/photo-1583623025817-d180a2221d0a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1051&q=80',
       price: 25,
     },
     {
-      id: 15,
+      id: 16,
       name: 'Sushi #3',
       imageUrl:
         'https://images.unsplash.com/photo-1583623025817-d180a2221d0a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1051&q=80',
       price: 60,
     },
     {
-      id: 16,
+      id: 17,
       name: 'Sushi #4',
       imageUrl:
         'https://images.unsplash.com/photo-1583623025817-d180a2221d0a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1051&q=80',
@@ -121,28 +128,28 @@ const productCollections = {
   ],
   pizza: [
     {
-      id: 17,
+      id: 18,
       name: 'Pizza #1',
       imageUrl:
         'https://images.unsplash.com/photo-1574126154517-d1e0d89ef734?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=967&q=80',
       price: 15,
     },
     {
-      id: 18,
+      id: 19,
       name: 'Pizza #2',
       imageUrl:
         'https://images.unsplash.com/photo-1574126154517-d1e0d89ef734?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=967&q=80',
       price: 25,
     },
     {
-      id: 19,
+      id: 20,
       name: 'Pizza #3',
       imageUrl:
         'https://images.unsplash.com/photo-1574126154517-d1e0d89ef734?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=967&q=80',
       price: 60,
     },
     {
-      id: 20,
+      id: 21,
       name: 'Pizza #4',
       imageUrl:
         'https://images.unsplash.com/photo-1574126154517-d1e0d89ef734?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=967&q=80',
