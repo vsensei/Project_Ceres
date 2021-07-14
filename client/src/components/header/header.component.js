@@ -2,7 +2,7 @@ import React from 'react';
 import { createStructuredSelector } from 'reselect';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import CartDropDownContainer from 'components/cart-dropdown/cart-dropdown.component';
+import CartDropDown from 'components/cart-dropdown/cart-dropdown.component';
 import { selectCartHidden } from 'redux/cart/cart.selectors';
 import { toggleCartHidden } from 'redux/cart/cart.actions';
 import { selectCartItemsCount } from 'redux/cart/cart.selectors';
@@ -42,7 +42,7 @@ const Header = ({ cartHidden, toggleCartHidden, itemCount }) => (
         <span className="cart-item-count">{itemCount}</span>
       </div>
     </div>
-    {!cartHidden ? <CartDropDownContainer /> : null}
+    {!cartHidden ? <CartDropDown /> : null}
   </div>
 );
 
