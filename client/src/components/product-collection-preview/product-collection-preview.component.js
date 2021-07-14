@@ -1,10 +1,10 @@
 import React from 'react';
 import ProductCollection from 'components/shared/product-collection/product-collection.component';
 
-const ProductCollectionPreview = ({ title, productCollection }) => (
+const ProductCollectionPreview = ({ title, items }) => (
   <ProductCollection
     title={title}
-    productCollection={productCollection.filter((item, index) => index < 4)}
+    productCollection={items.filter((item, index) => index < 4)}
   />
 );
 
