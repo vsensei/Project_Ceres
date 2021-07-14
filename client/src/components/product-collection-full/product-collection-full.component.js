@@ -1,17 +1,22 @@
 import React from 'react';
-import productCollectionsDummy from 'dummies/productCollectionsDummy';
 import ProductCollection from 'components/shared/product-collection/product-collection.component';
+import { connect } from 'react-redux';
+import { selectCollection } from 'redux/shop/shop.selectors';
 
-const ProductCollectionFull = ({ match }) => {
-  const collectionId = match.params.collectionId;
+const ProductCollectionFull = ({ collection }) => {
+  const { title, items } = collection;
 
   return (
     <ProductCollection
-      title={collectionId.toUpperCase()}
-      productCollection={productCollectionsDummy[collectionId]}
+      title={title.toUpperCase()}
+      productCollection={items}
       subClass="full"
     />
   );
 };
 
-export default ProductCollectionFull;
+const mapStateToProps = (state, { match }) => ({
+  collection: selectCollection(match.params.collectionId)(state),
+});
+
+export default connect(mapStateToProps)(ProductCollectionFull);
