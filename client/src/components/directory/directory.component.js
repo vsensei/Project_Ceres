@@ -2,9 +2,11 @@ import React from 'react';
 import DirectoryItem from 'components/directory-item/directory-item.component';
 import './directory.styles.scss';
 import { withRouter } from 'react-router-dom';
-import sections from 'dummies/sectionsDummy';
+import { connect } from 'react-redux';
+import { selectDirectorySections } from '../../redux/directory/directory.selectors';
+import { createStructuredSelector } from 'reselect';
 
-const Directory = ({ history }) => {
+const Directory = ({ sections, history }) => {
   const chooseDirectoryItem = (url, link) => () =>
     history.push(`${url}${link}`);
 
@@ -21,4 +23,8 @@ const Directory = ({ history }) => {
   );
 };
 
-export default withRouter(Directory);
+const mapStateToProps = createStructuredSelector({
+  sections: selectDirectorySections,
+});
+
+export default connect(mapStateToProps)(withRouter(Directory));
