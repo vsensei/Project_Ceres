@@ -6,11 +6,10 @@ import CartDropDown from 'components/cart-dropdown/cart-dropdown.component';
 import { selectCartHidden } from 'redux/cart/cart.selectors';
 import { toggleCartHidden } from 'redux/cart/cart.actions';
 import { selectCartItemsCount } from 'redux/cart/cart.selectors';
+import { selectCurrentUser } from 'redux/user/user.selectors';
 import './header.styles.scss';
 
-const user = 'y';
-
-const Header = ({ cartHidden, toggleCartHidden, itemCount }) => (
+const Header = ({ cartHidden, toggleCartHidden, itemCount, user }) => (
   <div className="header">
     <Link className="logo-container" to="/">
       <div
@@ -47,6 +46,7 @@ const Header = ({ cartHidden, toggleCartHidden, itemCount }) => (
 );
 
 const mapStateToProps = createStructuredSelector({
+  user: selectCurrentUser,
   cartHidden: selectCartHidden,
   itemCount: selectCartItemsCount,
 });
