@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import CartDropDownContainer from 'components/cart-dropdown/cart-dropdown.component';
 import './header.styles.scss';
 
 const user = 'y';
@@ -36,6 +37,7 @@ const Header = () => (
         <span className="cart-item-count">0</span>
       </div>
     </div>
+    <CartDropDownContainer />
   </div>
 );
 
