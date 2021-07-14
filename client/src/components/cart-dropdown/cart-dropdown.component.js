@@ -1,14 +1,14 @@
 import React from 'react';
 import CustomButton from 'components/shared/custombutton/custombutton.component';
 import CartItem from 'components/cart-item/cart-item.component';
-import './cart-dropdown.styles.scss';
-import productCollections from 'dummies/productCollectionsDummy';
+import { selectCartItems } from '../../redux/cart/cart.selectors';
 import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
 import { toggleCartHidden } from 'redux/cart/cart.actions';
 import { withRouter } from 'react-router-dom';
+import './cart-dropdown.styles.scss';
 
-const CartDropDown = ({ history, toggleCartHidden }) => {
-  const cartItems = productCollections.soup;
+const CartDropDown = ({ cartItems, history, toggleCartHidden }) => {
   const goToCart = () => {
     history.push('/checkout');
     toggleCartHidden();
@@ -30,8 +30,15 @@ const CartDropDown = ({ history, toggleCartHidden }) => {
   );
 };
 
+const mapStateToProps = createStructuredSelector({
+  cartItems: selectCartItems,
+});
+
 const mapDispatchToProps = (dispatch) => ({
   toggleCartHidden: () => dispatch(toggleCartHidden()),
 });
 
-export default connect(null, mapDispatchToProps)(withRouter(CartDropDown));
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(withRouter(CartDropDown));
