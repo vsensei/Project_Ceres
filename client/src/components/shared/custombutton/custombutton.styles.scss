@@ -1,0 +1,38 @@
+@use 'styles/common';
+@use 'styles/variables' as vars;
+
+.custombutton {
+  @extend %pointer;
+  @extend %rowflex;
+  @extend %centercontent;
+  min-width: 165px;
+  //width: auto;
+  //height: 50px;
+  letter-spacing: 0.5px;
+  line-height: 50px;
+  padding: 0 35px;
+  font-size: 11px;
+  background-color: vars.$secondarycolor;
+  color: vars.$primarycolor;
+  text-transform: uppercase;
+  font-weight: bolder;
+  border: none;
+
+  &:hover {
+    background-color: vars.$primarycolor;
+    color: vars.$secondarycolor;
+    border: 1px solid vars.$secondarycolor;
+  }
+
+  &.inverted {
+    background-color: vars.$primarycolor;
+    color: vars.$secondarycolor;
+    border: 1px solid vars.$secondarycolor;
+
+    &:hover {
+      background-color: vars.$secondarycolor;
+      color: vars.$primarycolor;
+      border: none;
+    }
+  }
+}
