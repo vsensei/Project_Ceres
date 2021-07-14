@@ -1,5 +1,4 @@
 import React from 'react';
-import productCollectionsDummy from 'dummies/productCollectionsDummy';
 import ProductCollection from 'components/shared/product-collection/product-collection.component';
 import { connect } from 'react-redux';
 import { selectCollection } from 'redux/shop/shop.selectors';

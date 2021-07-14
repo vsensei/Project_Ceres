@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import ProductCollectionPreview from 'components/product-collection-preview/product-collection-preview.component';
-import productCollectionsDummy from 'dummies/productCollectionsDummy';
 import { selectCollectionsForPreview } from 'redux/shop/shop.selectors';
 import './product-collection-overview.styles.scss';
 
