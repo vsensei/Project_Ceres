@@ -1,0 +1,44 @@
+@use 'styles/common';
+@use 'styles/variables' as vars;
+
+.checkout-item {
+  @extend %fullwidth;
+  @extend %rowflex;
+  @extend %centeritems;
+  min-height: 100px;
+  border-bottom: 1px solid vars.$textcolor;
+  padding: 15px 0;
+  font-size: 20px;
+
+  .image-container {
+    width: 23%;
+    padding-right: 15px;
+
+    img {
+      @extend %fullwidth;
+      @extend %fullheight;
+    }
+  }
+  .name,
+  .quantity,
+  .price {
+    width: 23%;
+  }
+
+  .quantity {
+    @extend %rowflex;
+
+    .arrow {
+      @extend %pointer;
+    }
+
+    .value {
+      margin: 0 10px;
+    }
+  }
+
+  .remove-button {
+    @extend %pointer;
+    padding-left: 12px;
+  }
+}
