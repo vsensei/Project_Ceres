@@ -4,14 +4,16 @@ import { connect } from 'react-redux';
 import { selectCollection } from 'redux/shop/shop.selectors';
 
 const ProductCollectionFull = ({ collection }) => {
-  const { title, items } = collection;
-
   return (
-    <ProductCollection
-      title={title.toUpperCase()}
-      productCollection={items}
-      subClass="full"
-    />
+    <>
+      {collection ? (
+        <ProductCollection
+          title={collection.title.toUpperCase()}
+          productCollection={collection.items}
+          subClass="full"
+        />
+      ) : null}
+    </>
   );
 };
 
