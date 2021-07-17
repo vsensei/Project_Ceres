@@ -12,9 +12,9 @@
 
   .item-details {
     @extend %columnflex;
+    @extend %centercontent;
     width: 60%;
     align-items: flex-start;
-    justify-content: center;
     padding: 10px 20px;
 
     .name {
