@@ -16,41 +16,56 @@ const Header = ({
   signOutStart,
   itemCount,
   user,
-}) => (
-  <div className="header">
-    <Link className="logo-container" to="/">
-      <div
-        className="logo"
-        style={{ backgroundImage: `url('/images/logo.svg')` }}
-      />
-    </Link>
-    <div className="options-container">
-      <Link className="option" to="/shop">
-        SHOP
-      </Link>
-      <Link className="option" to="/contact">
-        CONTACT
-      </Link>
-      {user ? (
-        <div className="option" onClick={signOutStart}>
-          SIGN OUT
-        </div>
-      ) : (
-        <Link className="option" to="/signin">
-          SIGN IN
+}) => {
+  const OptionLink = ({ link, label = link }) => {
+    if (link === '/')
+      return (
+        <Link className="logo-container" to="/">
+          <div
+            className="logo"
+            style={{ backgroundImage: `url('/images/logo.svg')` }}
+          />
         </Link>
-      )}
-      <div className="cart-icon" onClick={toggleCartHidden}>
-        <div
-          className="cart-logo"
-          style={{ backgroundImage: `url('/images/cart.svg')` }}
-        ></div>
-        <span className="cart-item-count">{itemCount}</span>
-      </div>
+      );
+
+    return (
+      <Link className="option" to={`/${link}`}>
+        {label.toUpperCase()}
+      </Link>
+    );
+  };
+  const Option = ({ label, handleClick }) => (
+    <div className="option" onClick={handleClick}>
+      {label.toUpperCase()}
     </div>
-    {!cartHidden ? <CartDropDown /> : null}
-  </div>
-);
+  );
+
+  return (
+    <div className="header">
+      <OptionLink link="/" />
+      <div className="options-container">
+        <OptionLink link="shop" />
+        <OptionLink link="contact" />
+        {user ? (
+          <Option label="sign out" handleClick={signOutStart} />
+        ) : (
+          <>
+            <OptionLink link="signin" label="sign in" />
+            <OptionLink link="signup" label="sign up" />
+          </>
+        )}
+        <div className="cart-icon" onClick={toggleCartHidden}>
+          <div
+            className="cart-logo"
+            style={{ backgroundImage: `url('/images/cart.svg')` }}
+          ></div>
+          <span className="cart-item-count">{itemCount}</span>
+        </div>
+      </div>
+      {!cartHidden ? <CartDropDown /> : null}
+    </div>
+  );
+};
 
 const mapStateToProps = createStructuredSelector({
   user: selectCurrentUser,
