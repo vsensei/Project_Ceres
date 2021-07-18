@@ -10,6 +10,8 @@ import {
   signUpFailure,
   signInSuccess,
   signInFailure,
+  signOutSuccess,
+  signOutFailure,
 } from './user.actions';
 
 export function* getSnapshotFromUserAuth(userAuth, additionalData) {
@@ -80,11 +82,25 @@ export function* onCheckUserSession() {
   yield takeLatest(UserActionTypes.CHECK_USER_SESSION, isUserAutentificated);
 }
 
+export function* signOut() {
+  try {
+    yield auth.signOut();
+    yield put(signOutSuccess());
+  } catch (e) {
+    put(signOutFailure(e));
+  }
+}
+
+export function* onSignOutStart() {
+  yield takeLatest(UserActionTypes.SIGN_OUT_START, signOut);
+}
+
 export function* userSagas() {
   yield all([
     call(onSignUpStart),
     call(onSignUpSuccess),
     call(onEmailSignInStart),
     call(onCheckUserSession),
+    call(onSignOutStart),
   ]);
 }
