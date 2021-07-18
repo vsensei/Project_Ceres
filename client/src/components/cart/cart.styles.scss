@@ -1,0 +1,24 @@
+@use 'styles/common';
+@use 'styles/mixins' as mixins;
+
+.header-cart {
+  @include mixins.setwidthandheight(45px, 45px);
+  @extend %rowflex;
+  @extend %centeredalignwithjustify;
+  @extend %pointer;
+  position: relative;
+
+  .header-cart-logo {
+    @include mixins.setwidthandheight(24px, 24px);
+  }
+
+  .header-cart-item-count {
+    @extend %fullwidth;
+    @extend %centtext;
+    position: absolute;
+    font-size: 10px;
+    font-weight: bold;
+    bottom: 42%;
+    right: -3px;
+  }
+}
