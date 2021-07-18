@@ -1,4 +1,5 @@
-import './App.scss';
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import Header from 'components/header/header.component';
 import HomePage from 'pages/homepage/homepage.component';
@@ -6,8 +7,14 @@ import ShopPage from 'pages/shop/shop.component';
 import CheckoutPage from 'pages/checkout/checkout.component';
 import SignUpPage from 'pages/signup/signup.component';
 import SignInPage from 'pages/signin/signin.component';
+import { checkUserSession } from './redux/user/user.actions';
+import './App.scss';
 
-function App() {
+function App({ checkUserSession }) {
+  useEffect(() => {
+    checkUserSession();
+  }, [checkUserSession]);
+
   return (
     <div>
       <Header />
@@ -22,4 +29,8 @@ function App() {
   );
 }
 
-export default App;
+const mapDispatchToProps = (dispatch) => ({
+  checkUserSession: () => dispatch(checkUserSession()),
+});
+
+export default connect(null, mapDispatchToProps)(App);
