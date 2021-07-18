@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import SignInSignUp from 'components/signinsignup/signinsignup.component';
 import { signUpStart } from 'redux/user/user.actions';
 
-const SignUpPage = () => {
+const SignUpPage = ({ signUpStart }) => {
   const [userCredentials, setUserCredentials] = useState({
     userName: '',
     email: '',
@@ -47,6 +47,7 @@ const SignUpPage = () => {
       alert("passwords don't match");
       return;
     }
+    signUpStart({ email, password, userName });
   };
 
   return (
