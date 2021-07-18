@@ -41,6 +41,19 @@ export function* signInAfterSignUp({ payload: { user, additionalData } }) {
   yield getSnapshotFromUserAuth(user, additionalData);
 }
 
+export function* signInWithEmail({ payload: { email, password } }) {
+  try {
+    const { user } = yield auth.signInWithEmailAndPassword(email, password);
+    yield getSnapshotFromUserAuth(user);
+  } catch (e) {
+    put(signInFailure(e));
+  }
+}
+
+export function* onEmailSignInStart() {
+  yield takeLatest(UserActionTypes.EMAIL_SIGN_IN_START, signInWithEmail);
+}
+
 export function* onSignUpStart() {
   yield takeLatest(UserActionTypes.SIGN_UP_START, signUp);
 }
@@ -50,5 +63,9 @@ export function* onSignUpSuccess() {
 }
 
 export function* userSagas() {
-  yield all([call(onSignUpStart), call(onSignUpSuccess)]);
+  yield all([
+    call(onSignUpStart),
+    call(onSignUpSuccess),
+    call(onEmailSignInStart),
+  ]);
 }
