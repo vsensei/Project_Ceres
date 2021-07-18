@@ -25,9 +25,15 @@
     }
   }
 
-  .total {
+  .total,
+  .cart-clear {
     margin-top: 20px;
     margin-left: auto;
     font-size: 30px;
+  }
+
+  .custombutton {
+    min-width: 147px;
+    line-height: 35px;
   }
 }
