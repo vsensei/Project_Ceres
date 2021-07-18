@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import SignInSignUp from 'components/signinsignup/signinsignup.component';
 import { emailSignInStart } from 'redux/user/user.actions';
 
-const SignInPage = () => {
+const SignInPage = ({ emailSignInStart }) => {
   const [userCredentials, setUserCredentials] = useState({
     email: '',
     password: '',
