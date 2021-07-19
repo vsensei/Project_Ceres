@@ -33,4 +33,15 @@
       border: none;
     }
   }
+
+  &.alternative {
+    background-color: vars.$alternativecolor;
+    color: vars.$primarycolor;
+    border: 1px solid vars.$alternativecolor;
+
+    &:hover {
+      background-color: vars.$primarycolor;
+      color: vars.$alternativecolor;
+    }
+  }
 }

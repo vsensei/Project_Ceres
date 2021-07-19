@@ -1,9 +1,11 @@
 import React from 'react';
 import './custombutton.styles.scss';
 
-const CustomButton = ({ children, inverted, ...otherProps }) => (
+const CustomButton = ({ children, inverted, alternative, ...otherProps }) => (
   <button
-    className={`${inverted ? 'inverted' : ''} custombutton`}
+    className={`${inverted ? 'inverted ' : ''}${
+      alternative ? 'alternative ' : ''
+    }custombutton`}
     {...otherProps}
   >
     {children}
