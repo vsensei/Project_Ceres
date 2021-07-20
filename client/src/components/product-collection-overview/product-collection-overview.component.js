@@ -2,7 +2,12 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import ProductCollectionPreview from 'components/product-collection-preview/product-collection-preview.component';
-import { selectCollectionsForPreview } from 'redux/shop/shop.selectors';
+import {
+  selectCollectionsForPreview,
+  selectIsCollectionFetching,
+} from 'redux/shop/shop.selectors';
+import WithSpinner from 'components/shared/with-spinner/with-spinner.component';
+import { compose } from 'redux';
 import './product-collection-overview.styles.scss';
 
 const ProductCollectionOverview = ({ collections }) => (
@@ -15,6 +20,10 @@ const ProductCollectionOverview = ({ collections }) => (
 
 const mapStateToProps = createStructuredSelector({
   collections: selectCollectionsForPreview,
+  isLoading: selectIsCollectionFetching,
 });
 
-export default connect(mapStateToProps)(ProductCollectionOverview);
+export default compose(
+  connect(mapStateToProps),
+  WithSpinner
+)(ProductCollectionOverview);
