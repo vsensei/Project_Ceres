@@ -1,7 +1,12 @@
 import React from 'react';
 import ProductCollection from 'components/shared/product-collection/product-collection.component';
 import { connect } from 'react-redux';
-import { selectCollection } from 'redux/shop/shop.selectors';
+import {
+  selectCollection,
+  selectIsCollectionsLoaded,
+} from 'redux/shop/shop.selectors';
+import WithSpinner from 'components/shared/with-spinner/with-spinner.component';
+import { compose } from 'redux';
 
 const ProductCollectionFull = ({ collection }) => {
   return (
@@ -19,6 +24,10 @@ const ProductCollectionFull = ({ collection }) => {
 
 const mapStateToProps = (state, { match }) => ({
   collection: selectCollection(match.params.collectionId)(state),
+  isLoading: !selectIsCollectionsLoaded(state),
 });
 
-export default connect(mapStateToProps)(ProductCollectionFull);
+export default compose(
+  connect(mapStateToProps),
+  WithSpinner
+)(ProductCollectionFull);
