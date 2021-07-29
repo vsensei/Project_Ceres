@@ -7,12 +7,12 @@ type Props = {
   inverted: boolean;
 };
 
-const CustomButton = ({
+const CustomButton: React.FC<Props> = ({
   children,
   alternative,
   inverted,
   ...otherProps
-}: Props) => (
+}) => (
   <button
     className={`${inverted ? 'inverted ' : ''}${
       alternative ? 'alternative ' : ''
