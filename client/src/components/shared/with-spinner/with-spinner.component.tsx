@@ -1,9 +1,13 @@
 import React from 'react';
 import Spinner from './spinner/spinner.component';
 
+type Props = {
+  isLoading: boolean;
+};
+
 const WithSpinner =
-  (WrappedComponent) =>
-  ({ isLoading, ...otherProps }) => {
+  (WrappedComponent: React.FC) =>
+  ({ isLoading, ...otherProps }: Props) => {
     return isLoading ? <Spinner /> : <WrappedComponent {...otherProps} />;
   };
 
