@@ -1,14 +1,30 @@
-import React from 'react';
+import React, { MouseEventHandler } from 'react';
 import { createStructuredSelector } from 'reselect';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Cart from 'components/cart/cart.component';
+import redux, { Action } from 'redux';
 import { selectCurrentUser } from 'redux/user/user.selectors';
 import { signOutStart } from '../../redux/user/user.actions';
 import './header.styles.scss';
 
-const Header = ({ signOutStart, user }) => {
-  const OptionLink = ({ link, label = link }) => {
+type OptionLink = {
+  link: string;
+  label?: string;
+};
+
+type Option = {
+  label: string;
+  handleClick: MouseEventHandler;
+};
+
+type Props = {
+  user: Object;
+  signOutStart: MouseEventHandler;
+};
+
+const Header: React.FC<Props> = ({ signOutStart, user }) => {
+  const OptionLink = ({ link, label = link }: OptionLink) => {
     if (link === '/')
       return (
         <Link className="logo-container" to="/">
@@ -25,7 +41,7 @@ const Header = ({ signOutStart, user }) => {
       </Link>
     );
   };
-  const Option = ({ label, handleClick }) => (
+  const Option = ({ label, handleClick }: Option) => (
     <div className="option" onClick={handleClick}>
       {label.toUpperCase()}
     </div>
@@ -55,7 +71,7 @@ const mapStateToProps = createStructuredSelector({
   user: selectCurrentUser,
 });
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = (dispatch: redux.Dispatch<Action>) => ({
   signOutStart: () => dispatch(signOutStart()),
 });
 
