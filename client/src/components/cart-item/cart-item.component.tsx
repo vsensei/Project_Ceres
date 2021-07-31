@@ -1,7 +1,18 @@
 import React from 'react';
 import './cart-item.styles.scss';
 
-const CartItem = ({ item: { imageUrl, price, name, quantity } }) => (
+type Props = {
+  item: {
+    imageUrl: string;
+    price: number;
+    name: string;
+    quantity: number;
+  };
+};
+
+const CartItem: React.FC<Props> = ({
+  item: { imageUrl, price, name, quantity },
+}) => (
   <div className="cart-item">
     <img src={imageUrl} alt="item" />
     <div className="item-details">
