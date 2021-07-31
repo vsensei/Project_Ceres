@@ -5,9 +5,21 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { selectDirectorySections } from 'redux/directory/directory.selectors';
 import { createStructuredSelector } from 'reselect';
+import { RouteComponentProps } from 'react-router';
 
-const Directory = ({ sections, history }) => {
-  const chooseDirectoryItem = (url, link) => () =>
+type Section = {
+  id: number;
+};
+
+type PathParamsType = {};
+
+type Props = RouteComponentProps<PathParamsType> & {
+  sections: Array<Section>;
+  history: any;
+};
+
+const Directory: React.FC<Props> = ({ sections, history }) => {
+  const chooseDirectoryItem = (url: string, link: string) => () =>
     history.push(`${url}${link}`);
 
   return (
@@ -15,8 +27,8 @@ const Directory = ({ sections, history }) => {
       {sections.map(({ id, ...otherSectionProps }) => (
         <DirectoryItem
           key={id}
-          {...otherSectionProps}
           chooseDirectoryItem={chooseDirectoryItem}
+          {...otherSectionProps}
         />
       ))}
     </div>
