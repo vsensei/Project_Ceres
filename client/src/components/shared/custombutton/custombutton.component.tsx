@@ -1,16 +1,18 @@
-import React from 'react';
+import React, { MouseEventHandler } from 'react';
 import './custombutton.styles.scss';
 
 type Props = {
-  children: JSX.Element;
-  alternative: boolean;
-  inverted: boolean;
+  children: JSX.Element | string;
+  alternative?: boolean;
+  inverted?: boolean;
+  onClick?: MouseEventHandler;
 };
 
 const CustomButton: React.FC<Props> = ({
   children,
   alternative,
   inverted,
+  onClick,
   ...otherProps
 }) => (
   <button
