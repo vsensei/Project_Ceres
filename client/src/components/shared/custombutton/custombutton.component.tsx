@@ -12,7 +12,6 @@ const CustomButton: React.FC<Props> = ({
   children,
   alternative,
   inverted,
-  onClick,
   ...otherProps
 }) => (
   <button
