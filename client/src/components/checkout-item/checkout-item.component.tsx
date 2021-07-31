@@ -1,14 +1,34 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { addItem, decreaseItem, deleteItem } from 'redux/cart/cart.actions';
+import redux, { Action } from 'redux';
 import './checkout-item.styles.scss';
 
-const CheckoutItem = ({ cartItem, addItem, decreaseItem, deleteItem }) => {
-  const { name, imageUrl, price, quantity } = cartItem;
+type CartItem = {
+  imageUrl: string;
+  price: number;
+  name: string;
+  quantity: number;
+};
 
-  const handleAddingItem = (cartItem) => () => addItem(cartItem);
-  const handleDecreasingItem = (cartItem) => () => decreaseItem(cartItem);
-  const handleDeletingItem = (cartItem) => () => deleteItem(cartItem);
+type Props = {
+  cartItem: CartItem;
+  addItem: Function;
+  decreaseItem: Function;
+  deleteItem: Function;
+};
+
+const CheckoutItem: React.FC<Props> = ({
+  cartItem,
+  addItem,
+  decreaseItem,
+  deleteItem,
+}) => {
+  const { name, imageUrl, price, quantity } = cartItem;
+  const handleAddingItem = (cartItem: CartItem) => () => addItem(cartItem);
+  const handleDecreasingItem = (cartItem: CartItem) => () =>
+    decreaseItem(cartItem);
+  const handleDeletingItem = (cartItem: CartItem) => () => deleteItem(cartItem);
 
   return (
     <div className="checkout-item">
@@ -33,10 +53,10 @@ const CheckoutItem = ({ cartItem, addItem, decreaseItem, deleteItem }) => {
   );
 };
 
-const mapDispatchToProps = (dispatch) => ({
-  addItem: (item) => dispatch(addItem(item)),
-  decreaseItem: (item) => dispatch(decreaseItem(item)),
-  deleteItem: (item) => dispatch(deleteItem(item)),
+const mapDispatchToProps = (dispatch: redux.Dispatch<Action>) => ({
+  addItem: (item: CartItem) => dispatch(addItem(item)),
+  decreaseItem: (item: CartItem) => dispatch(decreaseItem(item)),
+  deleteItem: (item: CartItem) => dispatch(deleteItem(item)),
 });
 
 export default connect(null, mapDispatchToProps)(CheckoutItem);
