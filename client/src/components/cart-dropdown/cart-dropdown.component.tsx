@@ -18,9 +18,7 @@ type Item = {
   quantity: number;
 };
 
-type PathParamsType = {
-  param1: string;
-};
+type PathParamsType = {};
 
 type Props = RouteComponentProps<PathParamsType> & {
   cartItems: Array<Item>;
