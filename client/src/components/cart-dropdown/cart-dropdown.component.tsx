@@ -3,12 +3,36 @@ import CustomButton from 'components/shared/custombutton/custombutton.component'
 import CartItem from 'components/cart-item/cart-item.component';
 import { selectCartItems } from '../../redux/cart/cart.selectors';
 import { connect } from 'react-redux';
+import redux, { Action } from 'redux';
 import { createStructuredSelector } from 'reselect';
 import { toggleCartHidden } from 'redux/cart/cart.actions';
 import { withRouter } from 'react-router-dom';
+import { RouteComponentProps } from 'react-router';
 import './cart-dropdown.styles.scss';
 
-const CartDropDown = ({ cartItems, history, toggleCartHidden }) => {
+type Item = {
+  id: number;
+  imageUrl: string;
+  price: number;
+  name: string;
+  quantity: number;
+};
+
+type PathParamsType = {
+  param1: string;
+};
+
+type Props = RouteComponentProps<PathParamsType> & {
+  cartItems: Array<Item>;
+  history: any;
+  toggleCartHidden: Function;
+};
+
+const CartDropDown: React.FC<Props> = ({
+  cartItems,
+  history,
+  toggleCartHidden,
+}) => {
   const goToCart = () => {
     history.push('/checkout');
     toggleCartHidden();
@@ -34,7 +58,7 @@ const mapStateToProps = createStructuredSelector({
   cartItems: selectCartItems,
 });
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = (dispatch: redux.Dispatch<Action>) => ({
   toggleCartHidden: () => dispatch(toggleCartHidden()),
 });
 
